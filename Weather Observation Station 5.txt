@@ -1,0 +1,7 @@
+select city,city_length from(
+select city,min(length(city)) as city_length from station group by city order by  city_length asc,city)
+where rownum = 1;
+
+select city,city_length from(
+select city,max(length(city)) as city_length from station group by city order by city_length desc,city)
+where rownum = 1;
