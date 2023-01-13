@@ -1,0 +1,1 @@
+SELECT LPAD('*',L,' *') FROM (SELECT LEVEL AS L FROM DUAL connect by level <= 40 ORDER BY LEVEL DESC) Where mod(L,2)=0;

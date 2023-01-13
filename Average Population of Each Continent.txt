@@ -1,0 +1,3 @@
+select country.continent,floor(avg(city.population)) from city, country where city.countrycode=country.code 
+and country.continent in (select country.continent from city, country where city.countrycode=country.code group by country.continent
+                          having count(city.name)>0) group by country.continent;

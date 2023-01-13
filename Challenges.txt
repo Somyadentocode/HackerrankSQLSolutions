@@ -1,0 +1,7 @@
+select c.hacker_id, h.name, count(challenge_id) as cnt from hackers h,challenges c 
+where c.hacker_id=h.hacker_id group by c.hacker_id,h.name having count(challenge_id) =
+(select max(t.cnt1) from (select  count(hacker_id) as cnt1 from challenges group by hacker_id
+                         order by hacker_id)t) or count(challenge_id) in 
+                         (select t1.cnt2 from(select count(*) as cnt2 from challenges group by hacker_id)t1 group by t1.cnt2 having
+                         count(t1.cnt2)=1)
+                         order by cnt desc,c.hacker_id;

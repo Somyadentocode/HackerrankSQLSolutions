@@ -1,0 +1,3 @@
+select name,grade,marks from students,grades where marks>=min_mark and marks<=max_mark and grade>=8
+union all
+select case when grade<8 then 'NULL' end as names,grade, marks from students,grades where marks>=min_mark and marks<=max_mark  and grade<8 order by grade desc,name;

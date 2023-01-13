@@ -1,0 +1,3 @@
+select name ||'(' || substr(occupation,0,1) || ')' as names from occupations order by names;
+
+select 'There are a total of ' || count(occupation) || ' '|| lower(occupation) ||'s.' as new_data from occupations group by occupation order by new_data,occupation;
